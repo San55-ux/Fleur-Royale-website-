@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleur Royale | Luxury Floral Booking</title>
+  <meta name="description" content="Experience premium floral artistry. Book bespoke bouquets, schedule hand-delivered arrangements, and compose custom calligraphy greeting cards.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header id="site-header">
+    <div class="header-container">
+      <a href="#" class="site-logo">Fleur Royale</a>
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#collection">Collection</a>
+        <a href="#single-stems">Custom Stems</a>
+        <a href="#booking">Schedule Delivery</a>
+        <a href="#card-writer">Greeting Card</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="cart-trigger" id="cart-btn" aria-label="View Cart">
+        <span>Cart</span>
+        <span class="cart-count" id="cart-counter">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="hero-content">
+      <span class="hero-tagline">Artisanal Floristry</span>
+      <h1 class="hero-title">Curated Bouquets<br>For Life's Royal Moments</h1>
+      <p class="hero-desc">Bespoke floral arrangements hand-tied and delivered in our signature premium packaging. Select your arrangement, schedule a delivery date, and add a custom calligraphy note.</p>
+      <a href="#collection" class="btn-primary">Explore Collection</a>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="/assets/hero_bouquet.png" alt="Luxury Bouquet Arrangement" class="hero-main-img" id="hero-img">
+    </div>
+  </section>
+
+  <!-- Collection / Catalog Section -->
+  <section class="collection-section" id="collection">
+    <div class="section-header">
+      <span class="section-tag">Our Creations</span>
+      <h2 class="section-title">The Signature Collection</h2>
+      <p class="section-subtitle">Select an arrangement to customize its wrapping paper, card details, and schedule booking.</p>
+    </div>
+    <!-- Filter Tabs -->
+    <div class="catalog-filters" id="catalog-filters-container"></div>
+    <!-- Bouquet Grid -->
+    <div class="catalog-grid" id="catalog-grid-container"></div>
+  </section>
+
+  <!-- Custom Single Stems Section (Manual Stem Selector) -->
+  <section class="single-stems-section" id="single-stems">
+    <div class="section-header">
+      <span class="section-tag">Bespoke Design</span>
+      <h2 class="section-title">Single Flower Stems</h2>
+      <p class="section-subtitle">Select fresh individual stems and enter the quantity manually to design your own rate.</p>
+    </div>
+    <!-- Single Stems Grid -->
+    <div class="stems-grid" id="stems-grid-container"></div>
+  </section>
+
+  <!-- Booking & Scheduling Section -->
+  <section class="booking-section" id="booking">
+    <div class="section-header">
+      <span class="section-tag">Booking Scheduler</span>
+      <h2 class="section-title">Reserve Your Delivery Date</h2>
+      <p class="section-subtitle">Select your date and time slot to guarantee hand-delivered freshness.</p>
+    </div>
+    
+    <div class="booking-layout">
+      <!-- Calendar Area -->
+      <div class="calendar-card" id="calendar-widget-container"></div>
+      
+      <!-- Time slot selectors -->
+      <div class="slots-card" id="time-slots-container"></div>
+    </div>
+  </section>
+
+  <!-- Digital Greeting Card Section -->
+  <section class="card-section" id="card-writer">
+    <div class="section-header">
+      <span class="section-tag">Personalize</span>
+      <h2 class="section-title">Handwritten Calligraphy Card</h2>
+      <p class="section-subtitle">Every Fleur Royale arrangement includes a complimentary envelope with your custom message rendered in elegant cursive script.</p>
+    </div>
+    
+    <div class="card-writer-layout">
+      <!-- Form Input -->
+      <div class="card-form-card">
+        <h3 class="panel-subtitle">Compose Your Note</h3>
+        <p class="panel-desc">Select an envelope style and type your message. It will be printed exactly as displayed on the right.</p>
+        
+        <div class="card-composer-form">
+          <div class="envelope-selector-group">
+            <span class="composer-label">Envelope Style</span>
+            <div class="envelope-options">
+              <button class="env-opt-btn active" data-style="emerald">Emerald & Gold</button>
+              <button class="env-opt-btn" data-style="cream">Classic Cream</button>
+              <button class="env-opt-btn" data-style="blush">Blush Velvet</button>
+            </div>
+          </div>
+          
+          <div class="card-input-group">
+            <label for="card-text-input" class="composer-label">Message</label>
+            <textarea id="card-text-input" class="card-textarea" maxlength="150" placeholder="Write a beautiful message for your recipient..."></textarea>
+            <div class="char-counter"><span id="card-char-count">0</span> / 150 characters</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Digital Card Preview -->
+      <div class="card-preview-container" id="card-preview-widget"></div>
+    </div>
+  </section>
+
+  <!-- Shopping Cart Slide-over Drawer -->
+  <div class="cart-drawer-overlay" id="cart-overlay" aria-hidden="true">
+    <div class="cart-drawer" id="cart-drawer-container"></div>
+  </div>
+
+  <!-- Contact Details & Inquiry Form Section -->
+  <section class="contact-section" id="contact">
+    <div class="section-header">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">Contact & Studio Details</h2>
+      <p class="section-subtitle">Reach out to our boutique designers or send a quick enquiry.</p>
+    </div>
+    
+    <div class="contact-layout">
+      <!-- Studio Details -->
+      <div class="contact-info-card">
+        <h3 class="panel-subtitle" style="margin-bottom: 1.25rem; font-size: 1.7rem;">Studio Details</h3>
+        <div class="info-details-list" style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.95rem; line-height: 1.6;">
+          <div>
+            <strong style="color: var(--color-emerald); display: block; font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.2rem;">Studio Name</strong>
+            <span>Fleur Royale Boutique Studio</span>
+          </div>
+          <div>
+            <strong style="color: var(--color-emerald); display: block; font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.2rem;">Email ID</strong>
+            <span>concierge@fleurroyale.com</span>
+          </div>
+          <div>
+            <strong style="color: var(--color-emerald); display: block; font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.2rem;">Phone No</strong>
+            <span>+1 (555) 769-2537</span>
+          </div>
+          <div>
+            <strong style="color: var(--color-emerald); display: block; font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.2rem;">Address</strong>
+            <span>85 Royal Botanical Gardens Road, London, SW3 4HD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-card">
+        <h3 class="panel-subtitle" style="margin-bottom: 0.5rem; font-size: 1.7rem;">Send Inquiry</h3>
+        <p class="panel-desc" style="margin-bottom: 1.5rem;">Our florists will respond within 2 hours to confirm custom orders.</p>
+        <form class="contact-form" id="inquiry-form" onsubmit="event.preventDefault(); alert('Inquiry Sent! Thank you, our lead designer will contact you shortly.'); this.reset();" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div class="card-input-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label class="composer-label" style="margin-bottom: 0;">Name</label>
+            <input type="text" class="premium-input" placeholder="Your full name" required style="background-color: var(--color-cream); width:100%;">
+          </div>
+          <div class="card-input-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label class="composer-label" style="margin-bottom: 0;">Email ID</label>
+            <input type="email" class="premium-input" placeholder="Your email ID" required style="background-color: var(--color-cream); width:100%;">
+          </div>
+          <div class="card-input-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <label class="composer-label" style="margin-bottom: 0;">Phone No</label>
+            <input type="tel" class="premium-input" placeholder="Your phone number" required style="background-color: var(--color-cream); width:100%;">
+          </div>
+          <button type="submit" class="btn-primary" style="margin-top: 0.5rem; padding: 0.85rem; width: 100%;">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">Fleur Royale</span>
+        <p>Bespoke botanical design for high-profile celebrations and intimate deliveries.</p>
+      </div>
+      <div class="footer-info">
+        <p>&copy; 2026 Fleur Royale Ltd. Hand-crafted in boutique studios.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript bundle -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
