@@ -24,7 +24,7 @@ To run this website locally on your computer:
 
 1. **Navigate to the Project Directory** in your terminal or Command Prompt:
    ```bash
-   cd C:\Users\sanja\OneDrive\Documents\fleur-royale
+   cd C:\Users\yourdrive\OneDrive\Documents\fleur-royale
    ```
 
 2. **Install Dependencies** (Vite development server):
